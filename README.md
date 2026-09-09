@@ -166,32 +166,33 @@ Team Members
 
 Team Lead
 
-Kripa Mehndiratta
+Bhumika Das
 
 Frontend
 
-Akash Kumar Gautam
+Ankit Pathak
+Sayan Bhowmik
 
 Backend
 
 Kripa Mehndiratta
+Akash Kumar Gautam
 
 Documentation & GitHub
 
-Saumya Kumari and srishti Kumari
+Aerisha Saxena
 
-Presentation 
+Project research and management
 
-Avinash Dubey 
+Bhumika Das
 
 
 ---
-
 Project Goal
 
 To create a transparent, accountable, and efficient grievance management system that ensures every complaint is tracked from submission to resolution, improving communication and trust across the campus.
 
 ---
 
-Made for Hackathon 2026 Summer of codefest 2.O
+Made for Project Exhibition-I
 
