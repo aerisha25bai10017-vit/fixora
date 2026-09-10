@@ -61,7 +61,6 @@ Student
 - Upload Images/Documents
 - Select Complaint Category
 - Track Complaint Status
-- Receive Notifications
 - View Complaint History
 
 Admin
@@ -79,7 +78,7 @@ Super Admin
 - Dashboard & Reports (org-wide)
 
 
-Complaint Workflow
+Complaint Workflow:
 
 Complaint Submitted
 
@@ -119,7 +118,6 @@ Frontend
 - Custom CSS (Light/Dark Theme)
 - Vite Preview
   
-  
 
 Backend
 
@@ -146,31 +144,28 @@ Future Scope
 
 Team Members
 
-Team Lead
-
+Team Lead -
 Bhumika Das
 
-Frontend
+Frontend-
 
 Ankit Pathak
 Sayan Bhowmik
 
-Backend
+Backend-
 
 Kripa Mehndiratta
 Akash Kumar Gautam
 
-Documentation & GitHub
-
+Documentation & GitHub-
 Aerisha Saxena
 
-Project research and management
-
+Project research and management-
 Bhumika Das
 
 
 ---
-Project Goal
+Project Goal-
 
 To create a transparent, accountable, and efficient grievance management system that ensures every complaint is tracked from submission to resolution, improving communication and trust across the campus.
 
