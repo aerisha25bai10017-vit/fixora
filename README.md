@@ -78,7 +78,6 @@ Super Admin
 - Assign each raised query to the right admin
 - Dashboard & Reports (org-wide)
 
----
 
 Complaint Workflow
 
@@ -115,7 +114,6 @@ Tech Stack
 Frontend
 
 - React (Vite)
-- Axios
 - React Context API
 - Recharts
 - Custom CSS (Light/Dark Theme)
@@ -126,31 +124,15 @@ Frontend
 Backend
 
 - Flask (Python)
-- Flask-SQLAlchemy
 - Flask-JWT-Extended (JWT Authentication)
 - Flask-CORS
 - Werkzeug Security (Password Hashing)
 - python-dotenv
-- Gunicorn
  
 
 Database
 
 - SQLite
-- PostgreSQL
-
-Architecture
-
-- Monolithic deployment(Flask serves React build)
-- RESTful API
-- Role - Based Access Control(Student/Admin)
-
-
-Deployment
-
-- Render (Free Tier) with Github Auto-Deploy
-
----
 
 Future Scope
 
