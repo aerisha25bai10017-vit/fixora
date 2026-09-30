@@ -1,0 +1,21 @@
+{
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "venv",
+    "Activate"
+  ],
+  "extraPaths": [
+    "."
+  ],
+  "venvPath": ".",
+  "venv": "venv",
+  "reportMissingImports": "none",
+  "reportMissingModuleSource": "none",
+  "reportAttributeAccessIssue": "none",
+  "reportGeneralTypeIssues": "none",
+  "reportOptionalMemberAccess": "none",
+  "reportArgumentType": "none",
+  "reportCallIssue": "none"
+}
