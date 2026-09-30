@@ -17,11 +17,20 @@ from routes.admin_routes import admin_bp
 from routes.academic_routes import academic_bp
 
 def create_app():
-    app = Flask(__name__, static_folder='frontend_dist', static_url_path='')
+    basedir = os.path.abspath(os.path.dirname(__file__))
+
+    # Detect frontend distribution folder (backend/frontend_dist or ../frontend/dist)
+    dist_candidates = [
+        os.path.join(basedir, 'frontend_dist'),
+        os.path.abspath(os.path.join(basedir, '..', 'frontend', 'dist')),
+    ]
+    static_dist_folder = next((p for p in dist_candidates if os.path.isdir(p)), os.path.join(basedir, 'frontend_dist'))
+
+    app = Flask(__name__, static_folder=None)
     app.config.from_object('config.Config')
+    app.static_dist_folder = static_dist_folder
 
     # Ensure folders exist
-    basedir = os.path.abspath(os.path.dirname(__file__))
     os.makedirs(os.path.join(basedir, 'database'), exist_ok=True)
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
@@ -46,10 +55,21 @@ def create_app():
     @app.route('/', defaults={'path': ''})
     @app.route('/<path:path>')
     def serve_frontend(path):
-        if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
-            return send_from_directory(app.static_folder, path)
-        else:
-            return send_from_directory(app.static_folder, 'index.html')
+        if path.startswith('api'):
+            return {'error': 'Endpoint not found', 'path': f'/{path}'}, 404
+
+        dist_folder = app.static_dist_folder
+        if dist_folder and os.path.isdir(dist_folder):
+            if path != "" and os.path.isfile(os.path.join(dist_folder, path)):
+                return send_from_directory(dist_folder, path)
+            index_path = os.path.join(dist_folder, 'index.html')
+            if os.path.isfile(index_path):
+                return send_from_directory(dist_folder, 'index.html')
+
+        return {
+            'status': 'backend_ready',
+            'message': 'Fixora API is running. Build the frontend or visit /api/health.'
+        }, 200
 
     with app.app_context():
         db.create_all()
@@ -86,4 +106,6 @@ def _ensure_default_superadmin():
 app = create_app()
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('FLASK_DEBUG', 'False').lower() in ('true', '1')
+    app.run(debug=debug, host='0.0.0.0', port=port)

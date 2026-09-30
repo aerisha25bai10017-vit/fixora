@@ -1,0 +1,39 @@
+# Python
+venv/
+env/
+.venv/
+Activate/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/instance/
+backend/database/*.db
+backend/static/uploads/*
+!backend/static/uploads/.gitkeep
+backend/frontend_dist/
+
+# Node & Frontend
+node_modules/
+**/node_modules/
+frontend/dist/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env.local
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

@@ -152,6 +152,12 @@ Deployment
 
 ---
 
+## Deployment on Render
+
+For complete step-by-step instructions on deploying Fixora to Render using the pre-configured Blueprint or Web Service, refer to [DEPLOYMENT.md](DEPLOYMENT.md).
+
+---
+
 Future Scope
 
 - AI-based complaint prioritization

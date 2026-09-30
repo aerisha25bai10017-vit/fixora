@@ -1,0 +1,44 @@
+# Render Blueprint configuration for FIXora
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  # =========================================================
+  # Unified Web Service (Flask API + React Frontend)
+  # Free tier friendly: Both run in 1 service instance!
+  # =========================================================
+  - type: web
+    name: fixora-app
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn --chdir backend app:app"
+    healthCheckPath: "/api/health"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: SECRET_KEY
+        generateValue: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: SLA_HOURS
+        value: "24"
+      - key: SUPERADMIN_NAME
+        value: "Super Admin"
+      - key: SUPERADMIN_EMAIL
+        value: "superadmin@fixora.edu"
+      - key: SUPERADMIN_PASSWORD
+        value: "FixoraAdmin@2026"
+
+      # --- OPTIONAL: Uncomment to use Render PostgreSQL database ---
+      # - key: DATABASE_URL
+      #   fromDatabase:
+      #     name: fixora-db
+      #     property: connectionString
+
+# --- OPTIONAL: Uncomment to automatically provision a PostgreSQL database ---
+# databases:
+#   - name: fixora-db
+#     databaseName: fixora
+#     user: fixora_user
+#     plan: free
